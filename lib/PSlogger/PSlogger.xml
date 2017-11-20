@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>PSlogger</name></assembly>
+<members>
+<member name="P:PSlogger.Log.ExceptionString">
+<summary>
+ exception in string format (optional)
+</summary>
+</member>
+<member name="P:PSlogger.Log.StringInfo">
+<summary>
+ user defined
+</summary>
+</member>
+<member name="P:PSlogger.Log.ByteInfo">
+<summary>
+ user defined
+</summary>
+</member>
+<member name="P:PSlogger.Log.Process">
+<summary>
+ database in use during message generation
+</summary>
+</member>
+<member name="P:PSlogger.Log.Message">
+<summary>
+ user defined
+</summary>
+</member>
+<member name="P:PSlogger.Log.Level">
+<summary>
+ optional local server time
+</summary>
+</member>
+<member name="P:PSlogger.Log.UtcTime">
+<summary>
+ UtcTime of the message generation
+</summary>
+</member>
+<member name="P:PSlogger.Log.Counter">
+<summary>
+ overrides UtcRunTime as row key, must be unique within caller
+</summary>
+</member>
+<member name="P:PSlogger.Log.UtcRunTime">
+<summary>
+ UTC row key YYYY-MM-DD HH:MM:SS.mmm.ticks + Guid (time is associated with process/program execution)
+</summary>
+</member>
+<member name="P:PSlogger.Log.Caller">
+<summary>
+ program calling the logger
+</summary>
+</member>
+<member name="T:PSlogger.Log">
+<summary>
+ log message and supporting data
+</summary>
+</member>
+<member name="T:PSlogger.IO.InternalLog">
+<summary>
+ should not have to make this type public
+ workaround for https://github.com/Azure/azure-storage-net/issues/523
+</summary>
+</member>
+</members>
+</doc>

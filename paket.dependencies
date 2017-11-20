@@ -1,0 +1,17 @@
+framework: auto-detect
+source https://nuget.org/api/v2
+
+nuget Microsoft.Azure.WebJobs
+nuget Microsoft.Azure.WebJobs.Extensions
+
+group Build
+  source https://nuget.org/api/v2
+  
+  nuget FAKE
+  nuget FSharp.Formatting
+
+  github fsharp/FAKE modules/Octokit/Octokit.fsx
+
+group Test
+	source https://nuget.org/api/v2
+  

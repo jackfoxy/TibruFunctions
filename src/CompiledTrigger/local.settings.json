@@ -1,0 +1,12 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "scriptFile": "CompiledTrigger.dll",
+  "entryPoint": "Trigger.Run",
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsDashboard": "",
+    "AzureWebJobStorage": "UseDevelopmentStorage=true",
+    "tibrutest12_STORAGE": "UseDevelopmentStorage=true"
+  }
+
+}

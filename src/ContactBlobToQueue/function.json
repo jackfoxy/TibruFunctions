@@ -1,0 +1,12 @@
+{
+  "bindings": [
+    {
+      "name": "rawConnections",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "contactinput/{folder}/{filename}.{extension}",
+      "connection": "tibrutest12_STORAGE"
+    }
+  ],
+  "disabled": false
+}

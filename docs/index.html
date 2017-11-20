@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>TibruFunctions
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Azure functions for Tibru contacts system"/>
+    <meta name="author" content="Jack Fox"/>
+
+    <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.8.23/jquery-ui.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet"/>
+
+    <link type="text/css" rel="stylesheet" href="/TibruFunctions/content/style.css" />
+    <script type="text/javascript" src="/TibruFunctions/content/tips.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="http://fsharp.org">fsharp.org</a></li>
+          <li><a href="https://github.com/jackfoxy/TibruFunctions">github page</a></li>
+        </ul>
+        <h3 class="muted"><a href="/TibruFunctions/index.html">TibruFunctions</a></h3>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="span9" id="main">
+          
+<h1><a name="TibruFunctions" class="anchor" href="#TibruFunctions">TibruFunctions</a></h1>
+<h3><a name="FunctionsRoot" class="anchor" href="#FunctionsRoot">FunctionsRoot</a></h3>
+<div class="row">
+  <div class="span1"></div> 
+  <div class="span6">
+    <div class="well well-small">
+      <a href="https://tibru.scm.azurewebsites.net/dev/wwwroot/host.json">TibruFunctions App Service Editor</a>
+    </div>
+  </div>
+  <div class="span1"></div>
+</div>
+<h3><a name="Stream-log" class="anchor" href="#Stream-log">Stream log:</a></h3>
+<ul>
+<li>PS&gt;Add-AzureAccount</li>
+<li>PS&gt;Get-AzureSubscription  (can be skipped)</li>
+<li>PS&gt;Get-AzureSubscription -SubscriptionName "Visual Studio Enterprise" | Select-AzureSubscription</li>
+<li>PS&gt;Get-AzureWebSiteLog -Name tibru -Tail</li>
+</ul>
+<h3><a name="Documentation" class="anchor" href="#Documentation">Documentation</a></h3>
+<div class="row">
+  <div class="span1"></div> 
+  <div class="span6">
+    <div class="well well-small">
+      <a href="https://docs.microsoft.com/en-us/azure/azure-functions/">Azure Functions Documentation</a>
+    </div>
+  </div>
+  <div class="span1"></div>
+</div>
+<h3><a name="other-docs" class="anchor" href="#other-docs">other docs</a></h3>
+<div class="row">
+  <div class="span1"></div> 
+  <div class="span6">
+    <div class="well well-small">
+      <a href="https://github.com/Azure/azure-webjobs-sdk-script/wiki/Precompiled-functions">Precompiled functions</a>
+    </div>
+    <div class="well well-small">
+      <a href="https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/">Publishing a .NET class library as a Function App</a>
+    </div>
+    <div class="well well-small">
+      <a href="https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/">Visual Studio 2017 Tools for Azure Functions</a>
+    </div>
+    <div class="well well-small">
+      <a href="https://blogs.msdn.microsoft.com/appserviceteam/2017/08/14/azure-functions-tools-released-for-visual-studio-2017-update-3/">Azure Functions Tools released for Visual Studio 2017 Update 3</a>
+    </div>
+    <div class="well well-small">
+      <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference">Azure Functions developers guide</a>
+    </div>
+    <div class="well well-small">
+      <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-fsharp">Azure Functions F# Developer Reference</a>
+    </div>
+    <div class="well well-small">
+      <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-host-json">Azure Functions host.json reference</a>
+    </div>
+    <div class="well well-small">
+      <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings">Azure Functions triggers and bindings</a>
+    </div>
+    <div class="well well-small">
+      <a href="https://compositional-it.com/blog/2017/08-30-using-the-azure-type-provider-with-azure-functions/index.html">Using the Azure Type Provider with Azure Functions</a>
+    </div>
+    <div class="well well-small">
+      <a href="https://www.npmjs.com/package/azure-functions-core-tools">azure-functions-core-tools</a>
+    </div>
+    <div class="well well-small">
+      <a href="https://stackoverflow.com/questions/tagged/azure-functions">StackOverflow azure-funtions</a>
+    </div>
+    <div class="well well-small">
+      <a href="https://github.com/mikhailshilkov/FSharpHttpFull">F# Azure Function using WebJobs attributes to auto-generate function.json</a>
+    </div>
+  </div>
+  <div class="span1"></div>
+</div>
+<div>
+    <img src="img/FunctionAppsPortal.PNG">
+</div>
+<h2><a name="ContactBlobToQueue" class="anchor" href="#ContactBlobToQueue">ContactBlobToQueue</a></h2>
+<div class="row">
+  <div class="span1"></div> 
+  <div class="span6">
+    <div class="well well-small">
+      <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-storage-blob-triggered-function">Azure Blob storage function trigger docs</a>
+    </div>
+  </div>
+  <div class="span1"></div>
+</div>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+<span class="l">4: </span>
+<span class="l">5: </span>
+<span class="l">6: </span>
+<span class="l">7: </span>
+<span class="l">8: </span>
+<span class="l">9: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="s">&quot;bindings&quot;</span><span class="o">:</span> [
+    {
+      <span class="s">&quot;name&quot;</span><span class="o">:</span> <span class="s">&quot;rawConnections&quot;</span>,
+      <span class="s">&quot;type&quot;</span><span class="o">:</span> <span class="s">&quot;blobTrigger&quot;</span>,
+      <span class="s">&quot;direction&quot;</span><span class="o">:</span> <span class="s">&quot;in&quot;</span>,
+      <span class="s">&quot;path&quot;</span><span class="o">:</span> <span class="s">&quot;contactinput/{folder}/{filename}.{extension}&quot;</span>,
+      <span class="s">&quot;connection&quot;</span><span class="o">:</span> <span class="s">&quot;tibrutest12_STORAGE&quot;</span>
+    }
+]
+</code></pre></td>
+</tr>
+</table>
+<p>writes to rawcontacts queue (this should be parameterized in function app</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp"><span class="k">new</span> <span class="i">CloudQueueMessage</span>(<span class="i">sprintf</span> <span class="s">&quot;%s/%s.%s&quot;</span> <span class="i">folder</span> <span class="i">filename</span> <span class="i">extension</span>)
+</code></pre></td>
+</tr>
+</table>
+<h2><a name="ContactQueueToProcess" class="anchor" href="#ContactQueueToProcess">ContactQueueToProcess</a></h2>
+<div class="row">
+  <div class="span1"></div> 
+  <div class="span6">
+    <div class="well well-small">
+      <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-storage-queue-triggered-function">Azure Queue storage function trigger docs</a>
+    <div class="well well-small">
+    </div>
+      <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-queue">Azure Functions Queue Storage bindings</a>
+    </div>
+  </div>
+  <div class="span1"></div>
+</div>
+<h2><a name="TimerTrigger" class="anchor" href="#TimerTrigger">TimerTrigger</a></h2>
+<div class="row">
+  <div class="span1"></div> 
+  <div class="span6">
+    <div class="well well-small">
+      <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-scheduled-function">Azure timer function trigger docs</a>
+    <div class="well well-small">
+    </div>
+      <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer">Azure Functions timer trigger</a>
+    </div>
+    </div>
+      <a href="https://github.com/mikhailshilkov/FSharpHttpCore">F# HTTP Trigger Function for .NET Core 2.0</a>
+    </div>
+  </div>
+  <div class="span1"></div>
+</div>
+
+
+        </div>
+        <div class="span3">
+          <img src="/TibruFunctions/img/logo.png" alt="F# Project" style="width:150px;margin:10px" />  
+          <ul class="nav nav-list" id="menu" style="margin-top: 20px;">
+            <li class="nav-header">TibruFunctions</li>
+            <li><a href="/TibruFunctions/index.html">Home page</a></li>
+            <li class="divider"></li>
+            <li><a href="http://nuget.org/packages/TibruFunctions">Get Library via NuGet</a></li>
+            <li><a href="https://github.com/jackfoxy/TibruFunctions">Source Code on GitHub</a></li>
+            <li><a href="/TibruFunctions/license.html">License</a></li>
+            <li><a href="/TibruFunctions/release-notes.html">Release Notes</a></li>
+            
+            <li class="nav-header">Getting started</li>
+            <li><a href="/TibruFunctions/tutorial.html">Sample tutorial</a></li>
+
+            <li class="nav-header">Documentation</li>
+            <li><a href="/TibruFunctions/reference/index.html">API Reference</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="https://github.com/jackfoxy/TibruFunctions"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"/></a>
+  </body>
+  </html>
