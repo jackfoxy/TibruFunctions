@@ -1,17 +1,16 @@
 framework: auto-detect
 source https://nuget.org/api/v2
 
-nuget Microsoft.Azure.WebJobs
-nuget Microsoft.Azure.WebJobs.Extensions
+nuget FSharp.Core
 
-group Build
-  source https://nuget.org/api/v2
+nuget Microsoft.NET.Sdk.Functions
+nuget Microsoft.AspNetCore.Mvc.Core
+nuget Microsoft.Azure.WebJobs >= 3.0.0-beta3
+nuget Microsoft.Azure.WebJobs.Extensions >= 3.0.0-beta3
   
-  nuget FAKE
-  nuget FSharp.Formatting
+nuget FAKE
+nuget FSharp.Formatting
 
-  github fsharp/FAKE modules/Octokit/Octokit.fsx
+github fsharp/FAKE modules/Octokit/Octokit.fsx
 
-group Test
-	source https://nuget.org/api/v2
   

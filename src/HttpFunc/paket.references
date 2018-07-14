@@ -1,0 +1,5 @@
+FSharp.Core
+Microsoft.Azure.WebJobs
+Microsoft.Azure.WebJobs.Extensions
+Microsoft.NET.Sdk.Functions
+Microsoft.AspNetCore.Mvc.Core
